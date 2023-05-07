@@ -1,15 +1,13 @@
-const usersUl = document.querySelector(".users");
+const usersUl = document.querySelector("ul");
 
 fetchUsers().then(users => {
 
-    let str = "";
 
-    users.forEach(user => {
-
-        str = str.concat(`<li>${user.name}</li>`)
-    })
-
-    usersUl.innerHTML = str;
+    usersUl.innerHTML = users.map(user => {
+        return (
+            `<li>${user.username}</li>`
+        )
+    }).join("");
 
 })
 
